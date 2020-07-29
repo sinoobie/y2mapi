@@ -62,4 +62,4 @@ down = requests.get(f"{base}/api/y2mate/download/{tipe}?url={url}&quality={qualy
 if down.json()['status'] == 'success':
 	downld(down.json()['url'], down.json()['judul'])
 else:
-	print(f"Error: {down.text}")
+	print(f"Error: {down.text}, Try Again!")
