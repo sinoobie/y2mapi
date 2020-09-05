@@ -42,19 +42,21 @@ else:
 resu = requests.get(f"{base}/api/y2mate/check_reso/{tipe}?url={url}").json()['result']
 
 n=1
-for x,y in resu.items():
-	if tipe == 'mp4':
+if tipe == 'mp4':
+	for x,y in resu.items():
 		print(f"{n}. {x} | {y}")
-	elif tipe == 'mp3':
+		n+=1
+elif tipe == 'mp3':
+	for x in resu:
 		print(f"{n}. {x}")
-	n+=1
+		n+=1
 
 if len(resu) == 0:
 	sys.exit('[!] Tidak dapat menemukan video')
 
 pil = int(input("[In] Pilih: "))
 if tipe == 'mp3':
-	qualy=list(resu.values())[pil-1]
+	qualy=resu[pil-1].split(' ')[0]
 elif tipe == 'mp4':
 	qualy=list(resu.keys())[pil-1].split(' ')[0]
 
