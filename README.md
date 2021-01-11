@@ -1,5 +1,7 @@
 # y2mapi
 unofficial y2mate API's
+* ## update
+* Fix forbidden response in download url
 
 # Check Resolution Video API
 * URL: ```https://nuubi.herokuapp.com/api/y2mate/check_reso/<type>?```
